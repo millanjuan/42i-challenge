@@ -1,0 +1,11 @@
+{
+  "name": "42i-challenge-api",
+  "version": "0.0.1",
+  "description": "42i's challenge",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juan Segundo Millan",
+  "license": "ISC"
+}
