@@ -4,8 +4,22 @@
   "description": "42i's challenge",
   "main": "app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec ts-node app.ts"
   },
   "author": "Juan Segundo Millan",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/express-validator": "^3.0.0",
+    "@types/node": "^22.5.3",
+    "nodemon": "^3.1.4",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-validator": "^7.2.0"
+  }
 }
