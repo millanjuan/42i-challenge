@@ -7,3 +7,11 @@ export const firstChallenge = {
   NUM_POSITIVE: "Each number must be greater than 0.",
   NUM_DUPLICATED: "Every number must be unique.",
 };
+
+export const secondChallenge = {
+  REQUIRED: "Coins are required.",
+  TYPE: "Coins must be an array of positive integer numbers greaters than 0.",
+  CONDITIONS: "Coins must have between 3 and 10 digits.",
+};
+
+export const generic = "Internal server error.";

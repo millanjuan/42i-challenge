@@ -6,6 +6,8 @@ import routes from "./src/router/index";
 
 const server = express();
 
+server.use(bodyParser.json());
+
 server.use("/api", routes);
 
 server.listen(enviromentVariables.PORT, () => {

@@ -1,6 +1,6 @@
 import { body, validationResult } from "express-validator";
 import { Request, Response, NextFunction } from "express";
-import { firstChallenge } from "../utils/errorsTypes";
+import { firstChallenge, secondChallenge } from "../utils/errorsTypes";
 
 export const validateFirstChallenge = [
   body("targetSum")
@@ -28,7 +28,32 @@ export const validateFirstChallenge = [
   (req: Request, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ success: false, errors: errors.array() });
+    }
+    next();
+  },
+];
+
+export const validateSecondChallenge = [
+  body("coins")
+    .exists()
+    .withMessage(secondChallenge.REQUIRED)
+    .isArray()
+    .withMessage(secondChallenge.TYPE)
+    .custom((coins) => {
+      if (coins.length < 1 || coins.length > 10) {
+        throw new Error(secondChallenge.CONDITIONS);
+      }
+      if (coins.some((coin: number) => !Number.isInteger(coin) || coin <= 0)) {
+        throw new Error(secondChallenge.TYPE);
+      }
+      return true;
+    }),
+
+  (req: Request, res: Response, next: NextFunction) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ success: false, errors: errors.array() });
     }
     next();
   },

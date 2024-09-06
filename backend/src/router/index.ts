@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { validateFirstChallenge } from "../middlewares/challenge.middlewares";
+import {
+  validateFirstChallenge,
+  validateSecondChallenge,
+} from "../middlewares/challenge.middlewares";
 import ChallengeController from "../controllers/challenge.controller";
 
 const router = Router();
@@ -10,6 +13,10 @@ router.get(
   ChallengeController.twoNumberSum
 );
 
-router.get("/non-constructible-change");
+router.get(
+  "/non-constructible-change",
+  validateSecondChallenge,
+  ChallengeController.nonConstructibleChange
+);
 
 export default router;
